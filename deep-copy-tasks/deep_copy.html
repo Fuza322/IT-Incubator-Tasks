@@ -98,8 +98,11 @@
             ]
         }
     };
-
-    let man5FullCopy //  your code
+    // Solution
+    let man5FullCopy = {
+        ...man5,
+        mother: {...man5.mother, work: {...man5.mother.work}, parents: man5.mother.parents.map(el => ({...el}))}
+    }
 
 
     // 9 Object inside an object -> array -> object ->  object
@@ -131,9 +134,15 @@
             ]
         }
     };
-
-    let man6FullCopy  //  your code
-
+    // Solution
+    let man6FullCopy = {
+        ...man6,
+        mother: {
+            ...man6.mother, work: {...man6.mother.work}, parents: man6.mother.parents.map(el => (
+                {...el, favoriteDish: {...el.favoriteDish}})
+            )
+        }
+    }
 
     //10 Array of objects inside an object -> object -> array -> object ->  object
     let man7 = {
@@ -173,7 +182,20 @@
             ]
         }
     };
-
-    let man7FullCopy  //  your code
+    // Solution
+    let man7FullCopy = {
+        ...man7,
+        mother: {
+            ...man7.mother, work: man7.mother.work, parents: man7.mother.parents.map(el1 => (
+                {
+                    ...el1,
+                    favoriteDish: {
+                        ...el1.favoriteDish,
+                        ingredients: el1.favoriteDish.ingredients.map(el2 => ({...el2}))
+                    }
+                }
+            ))
+        }
+    }
 
 </script>
